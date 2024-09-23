@@ -24,10 +24,10 @@ public class MainApp  {
 
                 switch (choice) {
                     case 1 -> {
-                        System.out.println("Введите путь к исходному файлу:");
-                        String inputFileEncrypt = scanner.nextLine();
                         System.out.println("Введите путь к зашифрованному файлу:");
                         String outputFileEncrypt = scanner.nextLine();
+                        System.out.println("Введите путь к исходному файлу:");
+                        String inputFileEncrypt = scanner.nextLine();
                         System.out.println("Введите ключ:");
                         int keyEncrypt = scanner.nextInt();
                         System.out.println("Начинаем шифровку....");
@@ -37,7 +37,7 @@ public class MainApp  {
                         try {
                             Validator.validateFile(inputFileEncrypt);
                             KeyValidator.validateKey(keyEncrypt, Alphabet.getAlphabet().size());
-                            fileManager.processFile(inputFileEncrypt, outputFileEncrypt, keyEncrypt, cipher);
+                            fileManager.processFile(inputFileEncrypt, keyEncrypt, cipher);
                             System.out.println("Файл успешно зашифрован.");
                         } catch (Exception e) {
                             System.err.println("Ошибка: " + e.getMessage());
@@ -45,10 +45,10 @@ public class MainApp  {
                     }
 
                     case 2 -> {
-                        System.out.println("Введите путь к зашифрованному файлу:");
-                        String inputFileDecrypt = scanner.nextLine();
                         System.out.println("Введите путь к расшифрованному файлу:");
                         String outputFileDecrypt = scanner.nextLine();
+                        System.out.println("Введите путь к зашифрованному файлу:");
+                        String inputFileDecrypt = scanner.nextLine();
                         System.out.println("Введите ключ:");
                         int keyDecrypt = scanner.nextInt();
                         System.out.println("Начинаем расшифровку....");
@@ -58,7 +58,7 @@ public class MainApp  {
                         try {
                             Validator.validateFile(inputFileDecrypt);
                             KeyValidator.validateKey(keyDecrypt, Alphabet.getAlphabet().size());
-                            fileManager.processFile(inputFileDecrypt, outputFileDecrypt, -keyDecrypt, cipher);
+                            fileManager.processFile(inputFileDecrypt, -keyDecrypt, cipher);
                             System.out.println("Файл успешно расшифрован.");
                         } catch (Exception e) {
                             System.err.println("Ошибка: " + e.getMessage());

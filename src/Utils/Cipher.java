@@ -4,7 +4,7 @@ import Data.Alphabet;
 
 public class Cipher {
 
-        public String encrypt(String inputFile, String outputFile, int key) {
+        public String encrypt(String inputFile, int key) {
             StringBuilder result = new StringBuilder();
             for (int i = 0; i < inputFile.length(); i++) {
                 char currentChar = inputFile.charAt(i);
@@ -25,8 +25,8 @@ public class Cipher {
             return result.toString();
         }
 
-        public String decrypt(String inputFile, String outputFile, int key) {
+        public String decrypt(String inputFile, int key) {
             key = -key;
-            return encrypt(inputFile, outputFile, key); // Расшифровка аналогична шифрованию с отрицательным сдвигом
+            return encrypt(inputFile, key); // Расшифровка аналогична шифрованию с отрицательным сдвигом
         }
     }

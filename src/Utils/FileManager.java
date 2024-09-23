@@ -8,9 +8,9 @@ import java.nio.file.StandardOpenOption;
 
 
 public class FileManager {
-    public void processFile(String inputFilePath, String outputFilePath, int key, Cipher cipher) throws IOException {
+    public void processFile(String inputFilePath, int key, Cipher cipher) throws IOException {
         var inputPath = Paths.get(inputFilePath);
-        var outputPath = Paths.get(outputFilePath);
+        var outputPath = Paths.get("src/chip.txt");
 
         // Чтение всех строк из файла
         var lines = Files.readAllLines(inputPath, StandardCharsets.UTF_8);
